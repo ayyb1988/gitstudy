@@ -45,6 +45,8 @@ git log 查看commit id
 git reflog 查看提交记录,详细记录每条记录的commitid和title
 git reset --hard commitid 可以回退/前往指定的版
 
+另外，在暂存区(stage)的内容(即已经add，或者motify，但为commit) 也可以通过reset来撤销stage，即把修改从暂存区撤回到工作区  git reset --hard <file> ...
+
 
 
 注意：
