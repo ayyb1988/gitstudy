@@ -68,7 +68,23 @@ git diff 是比较工作区和分支的区别
 
 
 
+9. git checkout -- file     git reset HEAD file   git rest --hard HEAD^  撤销修改
+```
+对于文件 myfile.txt
 
+① 修改后 未add（添加到暂存区） 需要撤销修改时：
+        git checkout -- myfile.txt 或 手动删除工作区修改
+        工作区 ： clean  暂存区： clean
+② 修改后 add了（未commit） 再次修改文件  要撤销第二次修改时：
+        git checkout -- myfile.txt (将暂存区恢复到工作区)
+        暂存区有第一次的修改需要commit
+③ 修改后 add了（未commit），需要撤销修改时：
+        git reset HEAD myfile.txt (将暂存区修改删除)
+        此时工作区的修改还未撤销
+        git checkout -- myfile.txt (撤销工作区修改)
+④ 修改后 add并commit了，需要撤销修改时：
+        git reset --hard HEAD^  (版本回退)**
+```
 .参考
 [Git 使用规范流程](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
 [廖雪峰git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
