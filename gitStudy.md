@@ -33,3 +33,7 @@ Changes not staged for commit:
 	modified:   READMEBak.md
 
 no changes added to commit
+
+
+5.参考
+[Git 使用规范流程](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
