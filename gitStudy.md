@@ -137,6 +137,27 @@ git push origin :分支名
 *. bug 用于修复bug
 *. feature 用于开发新功能
 
+16. tag
+git tag <name> 用于创建一个标签，默认为HEAD，也可以指定commitid
+git tag -a <tagname> -m "taginfo" ；可以指定标签信息
+git tag 查看所有标签
+git push origin <tagname>可以推送一个本地标签
+git push origin --tags可以推送全部未推送过的本地标签
+git tag -d <tagname>可以删除一个本地标签
+git push origin :refs/tags/<tagname>可以删除一个远程标签
+
+17. 配置alias，提高效率
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.br branch
+git config --global alias.unstage 'reset HEAD'
+git config --global alias.last 'log -1'
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+18. rebase
+
+19. cherry-pick
 
 
 .参考
