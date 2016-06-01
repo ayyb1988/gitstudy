@@ -34,6 +34,11 @@ Changes not staged for commit:
 
 no changes added to commit
 
+5. 与主干同步
+分支的开发过程中，要经常与主干同步
+git fetch origin
+git rebase origin/master
 
-5.参考
+6.参考
 [Git 使用规范流程](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
+[廖雪峰git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
