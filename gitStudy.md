@@ -39,6 +39,19 @@ no changes added to commit
 git fetch origin
 git rebase origin/master
 
-6.参考
+6. 已经commit的内容，版本回退
+git reset --hard HARD^  ^^ ^^^ [向前回退n个版本]
+git log 查看commit id
+git reflog 查看提交记录,详细记录每条记录的commitid和title
+git reset --hard commitid 可以回退/前往指定的版
+
+
+
+注意：
+git reset --hard会回退到你最近提交的版本上，如果你修改了工作区的内容只add了没有commit  那么使用了这个命令之后会回退到你最近一次commit的那个版本，你在工作区的修改就会丢失掉
+
+
+
+.参考
 [Git 使用规范流程](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
 [廖雪峰git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
