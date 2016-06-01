@@ -115,7 +115,8 @@ git stash pop
 如果不确定就用 git stash apply。
 如果本分支stash了内容，基于本分支 checkout -b 一个新分支也带有stash信息，并且这份stash信息是同一份，如果在新分支stash pop/drop了，之前的分支同样也不见了。
 
-
+14. 在新分支开发功能完毕，如果功能需要，则merge到相应的分支，然后新分支可以通过 git branch -d new_branch 删除。
+如果功能开发后，不需要了，即没有merge到其他分支，还用上面的删除命令就会报new_branch分支还没有被合并，如果删除，将丢失掉修改，如果要强行删除，需要使用命令git branch -D new_branch。即用大写的D强行删除
 
 
 
