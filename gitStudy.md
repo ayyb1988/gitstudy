@@ -53,6 +53,21 @@ git reset --hard commitid 可以回退/前往指定的版
 git reset --hard会回退到你最近提交的版本上，如果你修改了工作区的内容只add了没有commit  那么使用了这个命令之后会回退到你最近一次commit的那个版本，你在工作区的修改就会丢失掉
 
 
+7. 工作区 暂存区 本地分支 远程分支
+工作区 -->git add file -->暂存区 -->git commit -m "xxx" -->本地分支-->git push origin master-->远程分支
+
+8. Git跟踪并管理的是修改，而非文件
+
+
+git diff HEAD -- readme.txt命令可以查看工作区和版本库里面最新版本的区别
+
+注意 git diff  vs git diff HEAD -- file 的区别
+
+git diff 是比较工作区和暂存区的区别
+git diff 是比较工作区和分支的区别
+
+
+
 
 .参考
 [Git 使用规范流程](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
