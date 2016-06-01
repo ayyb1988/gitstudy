@@ -94,6 +94,34 @@ git push -u origin master;  -u的作用建立本地仓库和远程仓库的关�
 git pull origin master;
 git clone
 
+12. git分支策略
+[Git 使用规范流程](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
+
+13. stash 用于bug分支，当有临时事情需要处理，而手上需求分支尚未完成。可以通过stash，把当前修改的内容藏匿起来。在有bug的分支 checkout一个bug分支，处理完成之后，在回到需求分支，通过stash pop 把藏匿的内容恢复，继续工作
+git stash
+git stash list
+git stash apply
+git stash apply@{0}
+git stash drop
+git stash pop
+
+注意：如果在git stash 后，不小心git stash pop 或者git stash drop ，也就是说stash的内容被丢弃了，但这些内容有有用，是否有办法恢复stash pop/drop的内容呐？
+
+(1) 如果命令窗口尚未关闭，可以找到对应的stash pop/drop的stash_hash。然后通过 git stash apply stash_hash恢复。参考[How to recover a dropped stash in Git?](http://stackoverflow.com/questions/89332/how-to-recover-a-dropped-stash-in-git/7844566#7844566)
+(2) 如果执行stash pop/drop 的窗口关闭了，通过 git fsck --no-reflog | awk '/dangling commit/ {print $3}' 或者 gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' ) 找到响应的stash_hash ,然后git stash apply stash_hash
+参考[How to recover a dropped stash in Git?](7bf8709bb275632b584b994f8a32a91219501f19)
+
+另外：
+如果不确定就用 git stash apply。
+如果本分支stash了内容，基于本分支 checkout -b 一个新分支也带有stash信息，并且这份stash信息是同一份，如果在新分支stash pop/drop了，之前的分支同样也不见了。
+
+
+
+
+
+
+
+
 
 .参考
 [Git 使用规范流程](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
