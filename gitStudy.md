@@ -85,6 +85,12 @@ git diff 是比较工作区和分支的区别
 ④ 修改后 add并commit了，需要撤销修改时：
         git reset --hard HEAD^  (版本回退)**
 ```
+10. 删除文件 以及 恢复删除的文件。 git rm file  ;
+
+
+
+
+
 .参考
 [Git 使用规范流程](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
 [廖雪峰git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
