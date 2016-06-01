@@ -119,8 +119,23 @@ git stash pop
 如果功能开发后，不需要了，即没有merge到其他分支，还用上面的删除命令就会报new_branch分支还没有被合并，如果删除，将丢失掉修改，如果要强行删除，需要使用命令git branch -D new_branch。即用大写的D强行删除
 
 
+15. 多人协作
+(1) 拉取分支：
+git clone xxx;git自动把本地master和远程master分支对应起来，并且远程仓库的名字默认为origin。可以通过git remote 或者git remote -v 来查看。
+(2) 推送分支：
+git push origin xxx;把本地xxx分支推送到远程服务器。如果远程存在xxx分支，就是同步内容；如果远程没有xxx分支，就是把本地分支push到远程，并且建立关联。
 
+(3) 更新本地分支
+git pull 
+(4) 删除远程分支
+git push origin :分支名
 
+另外：
+分支有四种类型
+*. master分支 用于release发布版本
+*. dev 用于团队协作
+*. bug 用于修复bug
+*. feature 用于开发新功能
 
 
 
