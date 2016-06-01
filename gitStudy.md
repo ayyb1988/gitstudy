@@ -88,7 +88,11 @@ git diff 是比较工作区和分支的区别
 10. 删除文件 以及 恢复删除的文件。 git rm file  ;
 
 
-
+11. 添加远程仓库&关联远程仓库
+git remote add  origin xxxx;
+git push -u origin master;  -u的作用建立本地仓库和远程仓库的关联
+git pull origin master;
+git clone
 
 
 .参考
