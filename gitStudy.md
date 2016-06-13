@@ -130,6 +130,9 @@ git pull
 (4) 删除远程分支
 git push origin :分支名
 
+git push origin :<remote-branch> 或者 git push origin --delete <remote-branch>
+清除已被远程分支删除的本地残余 git remote prune origin
+
 另外：
 分支有四种类型
 *. master分支 用于release发布版本
@@ -155,11 +158,19 @@ git config --global alias.unstage 'reset HEAD'
 git config --global alias.last 'log -1'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
+
+git config --global alias.xxx xxxxxxx或者 git config --global alias.xxx 'xxxxxxxxxx'
 18. rebase
 
 19. cherry-pick
+
+20. revert回滚一个分支的合并
+
 
 
 .参考
 [Git 使用规范流程](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
 [廖雪峰git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+[《Git Community Book 中文版》](http://gitbook.liuhui998.com/index.html)
+[《Pro Git 中文版》]( http://git-scm.com/book/zh/)
+[《Getting Started – Git-Flow》] (http://yakiloo.com/getting-started-git-flow/)
