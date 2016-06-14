@@ -252,6 +252,39 @@ git fsck比reglog有一个优势。比如你删除了一个远端分支并且克
 file system check
 git fsck 
 
+29. git tag
+
+### tag是什么
+tag就是标签，git也有在历史状态的关键点“贴标签”的功能--一般人们用这个功能来标记发布点
+
+### 如何打tag
+本地打标签
+
+git tag v*** 2bcd97c
+
+这个就是给2bcd97c的提交打一个标签，用于以后容易区分
+
+本地删除标签
+
+git tag -d v****
+
+本地的标签如何PUSH到服务器端
+
+将本地的标签push到服务器
+
+git push origin v*****
+
+从服务器端删除标签
+
+git push origin :refs/tags/v****
+
+#####如何使用tag
+先 git clone 整个仓库，然后 git checkout tag_name 就可以取得 tag 对应的代码了。
+
+但是这时候 git 可能会提示你当前处于一个 detached HEAD 状态，因为 tag 相当于是一个快照，是不能更改它的代码的，如果要在 tag 代码的基础上做修改，你需要一个分支：git checkout -b branch_name tag_name
+
+
+
 .参考
 [Git 使用规范流程](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
 [Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
