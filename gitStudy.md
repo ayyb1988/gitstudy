@@ -234,6 +234,11 @@ merge 进阶：
  --squash 可以把 commits 合而为一
  --no-ff 可以禁止 fast-forward 从而产生 merge info
 
+git merge --squash的使用场景&使用方法
+feature分支修改提交了多次即多个commit，dev分支 merge feature分支时候，如果feature分支的commit messages是有意义的就保留多次commit信息，否则就使用
+--squash进行合并，然后添加新的message进行提交
+
+
 
 27. git show
 
