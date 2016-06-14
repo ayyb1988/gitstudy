@@ -156,21 +156,100 @@ git config --global alias.ci commit
 git config --global alias.br branch
 git config --global alias.unstage 'reset HEAD'
 git config --global alias.last 'log -1'
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 git config --global alias.xxx xxxxxxx或者 git config --global alias.xxx 'xxxxxxxxxx'
 18. rebase
 
+rebase 是一个很清爽的命令
+$ git rebase <[origin/]branch>
+rebase 用于重整分支到 fast-forward 可能
+进阶：git rebase -i 可以重排 commit 历史
+缺点：
+rebase 解决冲突较为繁琐
+警告：
+rebase 时请认准上游
+只能用 rebase 重整本地提交
+
+
+另外：git rebase 还可以把多次提交合并为一个
+
+git rebase -i HEAD~[number_of_commits]
+
 19. cherry-pick
+
+如果不想一次合并整个分支，那么…
+cherry-pick 可以选择合并部分 commit
+$ git cherry-pick <commits>
+
+提交错分支，可以此复制 commit
+可用于打包时挑选 bug fix
+
+一个事实：
+两人各提交完全相同的修改，合并时不会冲突
 
 20. revert回滚一个分支的合并
 
+21.git reflog
 
+```
+你提交了一个你不想要提交的代码，最后你通过使用硬重置(hard reset)使其回到了之前的状态。稍后，你意识到，在这个过程中你丢失了一些其他的信息，并想要退回或是至少能看一眼。git reflog命令可以帮你做到这一点。
+
+一个简单的git log命令，显示你最近的提交信息，以及上一次，再上一次的提交信息，以此类推。
+
+而git reflog显示的是所有head移动的信息。记住，它是在本地的，而不是你仓库的一部分，不会包含在推送(push)和合并中(merge)
+```
+22. git cherry-pick
+```
+ 在本地 master 分支上做了一个commit ( 38361a68138140827b31b72f8bbfd88b3705d77a ) ， 如何把它放到 本地 old_cc 分支上？ 
+
+办法之一： 使用 cherry-pick.  根据git 文档：
+Apply the changes introduced by some existing commits 
+就是对已经存在的commit 进行apply (可以理解为再次提交）
+
+简单用法：
+git cherry-pick <commit id>
+如果顺利，就会正常提交
+如果在cherry-pick 的过程中出现了冲突,就跟普通的冲突一样，手工解决,然后根据提示continue
+通过git status查看状态
+
+```
+
+23. git gc
+
+24. git bisect
+
+25. 冲突
+git pull 的时候可能冲突
+git 亦使用 <<<< ==== >>>> 格式的标示
+图形化解决冲突可能更直观
+解决冲突后，add、commit 提交
+放弃解决冲突，可以 $ git merge --abort
+
+
+26. merge
+merge 进阶：
+ --squash 可以把 commits 合而为一
+ --no-ff 可以禁止 fast-forward 从而产生 merge info
+
+
+27. git show
+
+git fsck --lost-found
+这里你可以看到丢失的提交，你可以使用git show [commit_hash]来查看这些提交所包含的改动或者是使用git merge [commit_hash]来恢复它。
+git fsck比reglog有一个优势。比如你删除了一个远端分支并且克隆了仓库，使用fsck命令你可以搜索并恢复该远端分支
+
+28. git fsck
+file system check
+git fsck 
 
 .参考
 [Git 使用规范流程](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
+[Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
+[Git flow工作流程](http://www.ruanyifeng.com/blog/2015/12/git-workflow.html)
+
 [廖雪峰git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 [《Git Community Book 中文版》](http://gitbook.liuhui998.com/index.html)
 [《Pro Git 中文版》]( http://git-scm.com/book/zh/)
 [《Getting Started – Git-Flow》] (http://yakiloo.com/getting-started-git-flow/)
+[让你的Git水平更上一层楼的10个小贴士](http://blog.jobbole.com/75348/)
