@@ -239,6 +239,8 @@ feature分支修改提交了多次即多个commit，dev分支 merge feature分�
 --squash进行合并，然后添加新的message进行提交
 
 
+git merge --no-ff的使用场景&使用方法
+feature分支修改提交了多次，即多个commit，dev分支 merge feature分支时，fast-forward方式就是当条件允许的时候，git直接把HEAD指针指向合并分支的头，完成合并。属于“快进方式”，不过这种情况如果删除分支，则会丢失分支信息。因为在这个过程中没有创建commit
 
 27. git show
 
