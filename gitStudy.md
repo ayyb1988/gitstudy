@@ -157,6 +157,7 @@ git config --global alias.br branch
 git config --global alias.unstage 'reset HEAD'
 git config --global alias.last 'log -1'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git config --global alias.ref 'remote prune origin'
 
 git config --global alias.xxx xxxxxxx或者 git config --global alias.xxx 'xxxxxxxxxx'
 18. rebase
@@ -217,6 +218,7 @@ git cherry-pick <commit id>
 
 23. git gc
 
+清理内存
 24. git bisect
 
 25. 冲突
