@@ -138,6 +138,7 @@ git cherry-pick <commit id>
 通过git status查看状态
 ```
 
+注意在git cherry-pick commithash或者 git show commithash等操作之前，如果commithash是最近提交的【即在远程仓库，本地仓库还没有，这时候如果执行上述操作会提示 `fatal: bad object`;这个时候需要先从远程仓库先fetch，然后在执行上述命令操作！！！ 】
 ####6.5. reflog
 
 ```
